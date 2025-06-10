@@ -16,7 +16,7 @@ class ApplicationController < Sinatra::Base
         puts "De la bombe, et du coup ça, ça doit être ce que l'utilisateur a passé dans le champ gossip_content : #{params["gossip_content"]}"
         puts "Ça déchire sa mémé, bon allez je m'en vais du serveur, ciao les BGs !"
 
-        Gossip.new(params["gossip_author"], params["gossip_content"]).save
+        Gossip.new(params["gossip_author"], params["gossip_content"], params["id"]).save
 
         redirect '/'
     end
@@ -29,7 +29,7 @@ class ApplicationController < Sinatra::Base
     end
 
     get '/gossips/:id' do
-    @gossip = Gossip.find(params[:id])
-    erb :show
+        @gossip = Gossip.all[params[:id].to_i]
+        erb :show
     end
 end

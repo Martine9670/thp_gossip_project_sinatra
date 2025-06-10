@@ -1,13 +1,11 @@
 <html>
   <head>
-    <title>Page du potin n°<%= @gossip.id %></title>
-  </head>
-  <body>
     <h1>PAGE POTIN</h1>
-    <p>Voici la page du potin n°<%= @gossip.id %></p>
+    <p>Voici la page du potin n°<%= params[:id] %></p>
     <p>Son auteur : <%= @gossip.gossip_author %></p>
     <p>Le contenu du potin : <%= @gossip.gossip_content %></p>
 
-    <p><a href="/gossip">Lien pour revenir à la page des potins</a></p>
+    <a href="/gossips">Revenir à la page des potins</a>
+    
   </body>
 </html>
