@@ -5,6 +5,14 @@
   <body>
     <h1>Mon super site de gossip, depuis le dossier views !</h1>
         <h1>Bienvenue ! La liste des potins arrive bientôt. En attendant tu peux créer un nouveau potin ici :</h1>
+
     <p><a href="/gossips/new/">Créer ton nouveau potin</a></p>
+
+      <% gossips.each do |gossip| %>
+        <p>
+          <%= gossip.gossip_author %><br/>
+          <%= gossip.gossip_content %>
+        </p>
+      <% end %>
   </body>
 </html>
