@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>Update un potin</title>
+  </head>
+  <body>
+    <h1>Mets à jour ton potin !</h1>
+    <p>Utilise le formulaire ci-dessous :</p>
+
+    <form action="/gossips/<%= @gossip.id %>/edit" method="POST">
+      Saisis ici ton nom :
+      <input type="text" name="gossip_author" value="<%= @gossip.gossip_author %>"/><br/>
+
+      Balance ton potin :
+      <input type="text" name="gossip_content" value="<%= @gossip.gossip_content %>"/><br/>
+
+      <input type="submit" value="Mettre à jour"/>
+    </form>
+
+    <br/>
+    <a href="/">← Retour à la page des potins</a>
+  </body>
+</html>

@@ -10,26 +10,27 @@ class ApplicationController < Sinatra::Base
     end
 
     post '/gossips/new/' do
-        puts "Salut, je suis dans le serveur"
-        puts "Ceci est le contenu du hash params : #{params}"
-        puts "Trop bien ! Et ceci est ce que l'utilisateur a passé dans le champ gossip_author : #{params["gossip_author"]}"
-        puts "De la bombe, et du coup ça, ça doit être ce que l'utilisateur a passé dans le champ gossip_content : #{params["gossip_content"]}"
-        puts "Ça déchire sa mémé, bon allez je m'en vais du serveur, ciao les BGs !"
-
-        Gossip.new(params["gossip_author"], params["gossip_content"], params["id"]).save
-
+        Gossip.new(params["gossip_author"], params["gossip_content"], Gossip.next_id).save
         redirect '/'
     end
 
     get '/hello/:id' do
-        # matches "GET /hello/foo" and "GET /hello/bar"
-        # params['name'] is 'foo' or 'bar'
-        puts "ca marche"
-        "Hello #{params['id']}!"
+        "Hello #{params[:id]}!"
     end
 
     get '/gossips/:id' do
-        @gossip = Gossip.all[params[:id].to_i]
+        @gossip = Gossip.find(params[:id])
         erb :show
+    end
+
+    get '/gossips/:id/edit/' do
+        @gossip = Gossip.find(params[:id])
+        erb :edit
+    end
+
+    post '/gossips/:id/edit' do
+        gossip = Gossip.find(params[:id])
+        gossip.update(params["gossip_author"], params["gossip_content"])
+        redirect "/gossips/#{params[:id]}"
     end
 end

@@ -4,15 +4,16 @@
   </head>
   <body>
     <h1>Mon super site de gossip !</h1>
-        <h2>Bienvenue ! Tu peux créer un nouveau potin ici ou accéder à la liste des potins :</h2>
+    <h2>Bienvenue ! Voici la liste des potins :</h2>
 
-    <p><a href="/gossips/new/">Créer ton nouveau potin</a></p>
+    <p>Tu peux aussi créer un nouveau potin ici : <a href="/gossips/new/">Créer ton nouveau potin</a></p>
 
-      <% gossips.each do |gossip| %>
-        <p>
-          <a href="/gossips/<%= gossip.id %>"><%= gossip.gossip_author %></a><br/>
-          <%= gossip.gossip_content %>
-        </p>
-      <% end %>
+    <% gossips.each do |gossip| %>
+      <p>
+        <a href="/gossips/<%= gossip.id %>"><%= gossip.gossip_author %></a><br/>
+        <%= gossip.gossip_content %><br/>
+        <a href="/gossips/<%= gossip.id %>/edit/">Éditer ce potin</a>
+      </p>
+    <% end %>
   </body>
 </html>
