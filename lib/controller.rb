@@ -21,4 +21,15 @@ class ApplicationController < Sinatra::Base
         redirect '/'
     end
 
+    get '/hello/:id' do
+        # matches "GET /hello/foo" and "GET /hello/bar"
+        # params['name'] is 'foo' or 'bar'
+        puts "ca marche"
+        "Hello #{params['id']}!"
+    end
+
+    get '/gossips/:id' do
+    @gossip = Gossip.find(params[:id])
+    erb :show
+    end
 end

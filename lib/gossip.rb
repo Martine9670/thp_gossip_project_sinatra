@@ -1,11 +1,12 @@
 require 'csv'
 
 class Gossip
-    attr_reader :gossip_author, :gossip_content
+    attr_reader :gossip_author, :gossip_content, :id
 
         def initialize(gossip_author, gossip_content)
         @gossip_author = gossip_author
         @gossip_content = gossip_content
+        @id = id
         end
 
 
@@ -21,5 +22,10 @@ class Gossip
             all_gossips << Gossip.new(csv_line[0], csv_line[1]) # Crée un gossip avec les infos de la ligne
         end
         return all_gossips # Retourne un array rempli d'objets Gossip
+    end
+
+    def self.find(id)
+        all_gossips = self.all
+        all_gossips[id.to_i - 1] # Soustrait 1 pour coller à l'index du tableau (0-based)
     end
 end

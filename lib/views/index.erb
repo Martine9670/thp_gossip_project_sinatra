@@ -10,7 +10,7 @@
 
       <% gossips.each do |gossip| %>
         <p>
-          <%= gossip.gossip_author %><br/>
+          <a href="/gossips/<%= gossip.id %>"><%= gossip.gossip_author %></a><br/>
           <%= gossip.gossip_content %>
         </p>
       <% end %>
