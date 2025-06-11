@@ -10,10 +10,9 @@
 
     <% gossips.each do |gossip| %>
       <p>
-        <a href="/gossips/<%= gossip.id %>"><%= gossip.gossip_author %></a><br/> # Lien vers la page de détails du potin. Affiche le nom de l’auteur comme texte cliquable.
-        <%= gossip.gossip_content %><br/> # Affiche le contenu du potin en dessous du nom de l’auteur.
-        <a href="/gossips/<%= gossip.id %>/edit/">Éditer ce potin</a> # Lien vers la page d'édition du potin en question.
-      </p>
+        <a href="/gossips/<%= gossip.id %>"><%= gossip.gossip_author %></a><br/> 
+        <%= gossip.gossip_content %><br/> 
+        <a href="/gossips/<%= gossip.id %>/edit/">Éditer ce potin</a> 
     <% end %>
   </body>
 </html>

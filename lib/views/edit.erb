@@ -6,13 +6,12 @@
     <h1>Mets à jour ton potin !</h1>
     <p>Utilise le formulaire ci-dessous :</p>
 
-    <form action="/gossips/<%= @gossip.id %>/edit" method="POST">  #L'action du formulaire envoie une requête POST à l'URL contenant l'ID du potin à modifier.
-                                                                   #<%= %> est du code Ruby ERB qui insère dynamiquement la valeur de @gossip.id.
+    <form action="/gossips/<%= @gossip.id %>/edit" method="POST">
       Saisis ici ton nom :
-      <input type="text" name="gossip_author" value="<%= @gossip.gossip_author %>"/><br/> #La valeur par défaut est pré-remplie avec la valeur actuelle de @gossip.gossip_author.
+      <input type="text" name="gossip_author" value="<%= @gossip.gossip_author %>"/><br/>
 
       Balance ton potin :
-      <input type="text" name="gossip_content" value="<%= @gossip.gossip_content %>"/><br/> #Pré-rempli avec la valeur actuelle de @gossip.gossip_content.
+      <input type="text" name="gossip_content" value="<%= @gossip.gossip_content %>"/><br/>
 
       <input type="submit" value="Mettre à jour"/>
     </form>

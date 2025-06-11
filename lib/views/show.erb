@@ -3,10 +3,9 @@
     <title>PAGE POTIN</title>
     </head>
     <body>
-    <p>Voici la page du potin n°<%= params[:id] %></p> # Numéro du potin à partir du paramètre d’URL `:id` transmis par le routeur (ex : /gossips/3).
-    <p>Son auteur : <%= @gossip.gossip_author %></p> #  Nom de l’auteur du potin, pris depuis l’objet @gossip transmis par le contrôleur.
-    <p>Le contenu du potin : <%= @gossip.gossip_content %></p> # Contenu du potin, également pris depuis l’objet @gossip.
-
+    <p>Voici la page du potin n°<%= params[:id] %></p>
+    <p>Son auteur : <%= @gossip.gossip_author %></p>
+    <p>Le contenu du potin : <%= @gossip.gossip_content %></p>
     <a href="/">Revenir à la page des potins</a>
     
   </body>
